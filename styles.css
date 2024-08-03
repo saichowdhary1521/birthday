@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .background {
+    background: linear-gradient(135deg, #ff99cc, #66b3ff, #99ff99);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  .card-container {
+    perspective: 1000px;
+  }
+  
+  .card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+  }
+  
+  .card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .card .front {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card .back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .paper {
+    background: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .paper h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  .paper p {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  .balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 40% 40%;
+    background: radial-gradient(circle at 50% 20%, #fff, #ff6347);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: float 4s infinite;
+  }
+  
+  .balloon1 {
+    left: 10%;
+    bottom: 10%;
+    animation-duration: 5s;
+  }
+  
+  .balloon2 {
+    right: 15%;
+    bottom: 20%;
+    animation-duration: 6s;
+  }
+  
+  .balloon3 {
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    animation-duration: 7s;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .cake {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background: #ff6347;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    bottom: 5%;
+    animation: bounce 2s infinite;
+  }
+  
+  .cake::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    top: -20px;
+    left: 10px;
+  }
+  .cake::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 50%;
+    top: -30px;
+    left: 25px;
+    animation: flame 1s infinite;
+  }
